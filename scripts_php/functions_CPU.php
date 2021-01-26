@@ -1,9 +1,9 @@
 <?php
 
-/* 
-* The following functions test the CPU (quota cpu) 
-*/ 
-
+/** 
+ * The following functions test the CPU (quota cpu) 
+ */ 
+ 
 // Test CPU by multiplying 100 times 
 function func_multiply_100($event, $context) {
     $number = 2;

@@ -1,46 +1,59 @@
 <?php
 
-/* 
-* The following functions test the behavior for unexpected prints or return values
-*/ 
+/** 
+ * The following functions test the behavior for unexpected prints or return values
+ */ 
 
-// Simple function which returns "bla"
-function func_return_bla($event, $context) {
-    $message = "bla";
+// Simple function which returns an ASCII string
+function func_return_ASCII($event, $context) 
+{
+    $ascii_string = 'text';
 
     return [
         'status' => 200,
-        'data' => $message
+        'data' => $ascii_string,
+    ];
+}
+
+// Simple function which prints an ASCII string
+function func_print_ASCII($event, $context) 
+{
+    $ascii_string = 'text';
+	echo $ascii_string; 
+	
+    return [
+        'status' => 200,
+        'data' => 'OK',
     ];
 }
 
 // Simple function which returns non utf data
-function func_return_non_utf8($event, $context){
-    $message = 'AB\xfc';
-    
-    return [
+function func_return_utf8($event, $context)
+{
+	$utf8_string = '奥地利';
+	
+	return [
         'status' => 200,
-        'data' => $message
+        'data' => $utf8_string,
     ];
 }
 
 // Simple function which prints non utf data
-function func_print_non_utf8($event, $context){
-    $message = 'AB\xfc';
-    print($message);
-
-    return [
+function func_print_utf8($event, $context)
+{
+	$utf8_string = '奥地利';
+	echo $utf8_string;
+	
+	return [
         'status' => 200,
-        'data' => "OK"
+        'data' => 'OK',
     ];
-} 
+}
 
 // Simple function which prints a string about 0.5 MB
-function func_print_0_5_MB($event, $context){
+function func_print_0_5_MB($event, $context)
+{
     $message = 'A';
-    
-    //$upper_letter = chr(rand(65,90));
-    //$lower_letter = chr(rand(97,122));
 
     // Append a random upper letter
     for ($counter = 0; $counter <= 60000; $counter++) {
@@ -50,12 +63,13 @@ function func_print_0_5_MB($event, $context){
     print($message);
     return [
         'status' => 200,
-        'data' => "OK"
+        'data' => 'OK',
     ];
 } 
 
 // Simple function which prints a string about 5 MB
-function func_print_5_MB($event, $context){
+function func_print_5_MB($event, $context)
+{
     $message = 'A';
 
     // Append a random upper letter
@@ -66,12 +80,13 @@ function func_print_5_MB($event, $context){
     print($message);
     return [
         'status' => 200,
-        'data' => "OK"
+        'data' => 'OK',
     ];
 } 
 
 // Simple function which prints a string about 50 MB
-function func_print_50_MB($event, $context){
+function func_print_50_MB($event, $context)
+{
     $message = 'A';
 
     // Append a random upper letter
@@ -82,12 +97,13 @@ function func_print_50_MB($event, $context){
     print($message);
     return [
         'status' => 200,
-        'data' => "OK"
+        'data' => 'OK',
     ];
 } 
 
 // Simple function which prints a string about 500 MB
-function func_print_500_MB($event, $context){
+function func_print_500_MB($event, $context)
+{
     $message = 'A';
 
     // Append a random upper letter
@@ -98,12 +114,13 @@ function func_print_500_MB($event, $context){
     print($message);
     return [
         'status' => 200,
-        'data' => "OK"
+        'data' => 'OK',
     ];
 } 
 
 // Simple function which returns a string about 50 MB
-function func_return_50_MB($event, $context){
+function func_return_50_MB($event, $context)
+{
     $message = 'A';
 
     // Append a random upper letter
@@ -113,12 +130,13 @@ function func_return_50_MB($event, $context){
     
     return [
         'status' => 200,
-        'data' => $message
+        'data' => $message,
     ];
 } 
 
 // Simple function which returns a string about 500 MB
-function func_return_500_MB($event, $context){
+function func_return_500_MB($event, $context)
+{
     $message = 'A';
 
     // Append a random upper letter
@@ -128,7 +146,8 @@ function func_return_500_MB($event, $context){
     
     return [
         'status' => 200,
-        'data' => $message
+        'data' => $message,
     ];
 } 
+
 ?>
