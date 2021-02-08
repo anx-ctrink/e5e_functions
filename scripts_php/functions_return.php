@@ -27,7 +27,7 @@ function func_print_ASCII($event, $context)
     ];
 }
 
-// Simple function which returns non utf data
+// Simple function which returns utf 8 data
 function func_return_utf8($event, $context)
 {
 	$utf8_string = '奥地利';
@@ -38,7 +38,7 @@ function func_return_utf8($event, $context)
     ];
 }
 
-// Simple function which prints non utf data
+// Simple function which prints utf 8 data
 function func_print_utf8($event, $context)
 {
 	$utf8_string = '奥地利';
@@ -50,11 +50,33 @@ function func_print_utf8($event, $context)
     ];
 }
 
+// Simple function which returns utf 16 data
+function func_return_utf16($event, $context)
+{
+	$utf8_string = '奥地利';
+	
+	return [
+        'status' => 200,
+        'data' => mb_convert_encoding($utf8_string,'UTF-16'),
+    ];
+}
+
+// Simple function which prints utf 16 data
+function func_print_utf16($event, $context)
+{
+	$utf8_string = '奥地利';
+	echo mb_convert_encoding($utf8_string,'UTF-16');
+	
+	return [
+        'status' => 200,
+        'data' => 'OK',
+    ];
+}
+
 // Simple function which prints a string about 0.5 MB
 function func_print_0_5_MB($event, $context)
 {
     $message = 'A';
-
     // Append a random upper letter
     for ($counter = 0; $counter <= 60000; $counter++) {
         $message .= chr(rand(65,90));; 
@@ -71,7 +93,6 @@ function func_print_0_5_MB($event, $context)
 function func_print_5_MB($event, $context)
 {
     $message = 'A';
-
     // Append a random upper letter
     for ($counter = 0; $counter <= 600000; $counter++) {
         $message .= chr(rand(65,90));; 
@@ -88,7 +109,6 @@ function func_print_5_MB($event, $context)
 function func_print_50_MB($event, $context)
 {
     $message = 'A';
-
     // Append a random upper letter
     for ($counter = 0; $counter <= 6000000; $counter++) {
         $message .= chr(rand(65,90));; 
@@ -105,7 +125,6 @@ function func_print_50_MB($event, $context)
 function func_print_500_MB($event, $context)
 {
     $message = 'A';
-
     // Append a random upper letter
     for ($counter = 0; $counter <= 60000000; $counter++) {
         $message .= chr(rand(65,90));; 
@@ -122,7 +141,6 @@ function func_print_500_MB($event, $context)
 function func_return_50_MB($event, $context)
 {
     $message = 'A';
-
     // Append a random upper letter
     for ($counter = 0; $counter <= 6000000; $counter++) {
         $message .= chr(rand(65,90));; 
@@ -138,7 +156,6 @@ function func_return_50_MB($event, $context)
 function func_return_500_MB($event, $context)
 {
     $message = 'A';
-
     // Append a random upper letter
     for ($counter = 0; $counter <= 60000000; $counter++) {
         $message .= chr(rand(65,90));; 

@@ -14,6 +14,11 @@ function func_save_textfile_func_code($event, $context)
         fwrite($fp, $content); 
         fclose($fp);
     }
+
+    return [
+        'status' => 200,
+        'data' => 'OK',
+    ];
 }
 
 // Create file in subdirectory of 'func_code' (read-only)
@@ -26,6 +31,11 @@ function func_save_textfile_func_code_subfolder($event, $context)
         fwrite($fp, $content); 
         fclose($fp);
     }
+
+    return [
+        'status' => 200,
+        'data' => 'OK',
+    ];
 }
 
 // Create file one folder above 'func_code' (read and write) 
@@ -39,6 +49,11 @@ function func_save_textfile_above($event, $context)
         fwrite($fp, $content); 
         fclose($fp);
     }
+
+    return [
+        'status' => 200,
+        'data' => 'OK',
+    ];
 }
 
 ?>

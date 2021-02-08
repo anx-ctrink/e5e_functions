@@ -11,7 +11,8 @@ function func_multiply_100($event, $context) {
         $number += rand ( 1, 999 );
       }
     return [
-        'data' => 'Hello world!',
+        'status' => 200,
+        'data' => 'OK',
     ];
 }
 
@@ -23,7 +24,8 @@ function func_multiply_100000($event, $context) {
         $number += rand ( 1, 999 );
       }
     return [
-        'data' => 'Hello world!',
+        'status' => 200,
+        'data' => 'OK',
     ];
 }
 
@@ -35,7 +37,8 @@ function func_multiply_1000000($event, $context) {
         $number += rand ( 1, 999 );
       }
     return [
-        'data' => 'Hello world!',
+        'status' => 200,
+        'data' => 'OK',
     ];
 }
 

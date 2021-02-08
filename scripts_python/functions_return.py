@@ -6,9 +6,29 @@ import string
 #
 
 
-# Simple function which returns "bla"
-def func_return_bla(event, context):
-    message = 'bla'
+# Simple function which returns "text"
+def func_return_ASCII(event, context):
+    message = 'text'
+
+    return {
+        'status': 200,
+        'data': message
+    }
+    
+# Simple function which prints "text"
+def func_return_ASCII(event, context):
+    message = 'text'
+    print(message)
+    
+    return {
+        'status': 200,
+        'data': "OK"
+    }
+
+
+# Simple function which returns non utf8 data
+def func_return_utf8(event, context):
+    message = '奥地利'
 
     return {
         'status': 200,
@@ -16,26 +36,33 @@ def func_return_bla(event, context):
     }
 
 
-# Simple function which returns non utf8 data
-def func_return_non_utf8(event, context):
-    message1 = 'AB\xfc'
-    message2 = u'æ'.encode('cp1252')
+# Simple function which prints utf8 data
+def func_print_utf8(event, context):
+    message = '奥地利'
+    # Print the string
+    print(message)
 
     return {
         'status': 200,
-        'data': message2
+        'data': 'OK'
     }
 
 
-# Simple function which prints non utf8 data
-def func_print_non_utf8(event, context):
-    # Two strings with non-ut8 data
-    s1 = 'AB\xfc'
-    s2 = u'æ'.encode('cp1252')
+# Simple function which returns non utf8 data
+def func_return_utf16(event, context):
+    message = '奥地利'
 
-    # Print the strings
-    print(s1)
-    print(s2)
+    return {
+        'status': 200,
+        'data': message.encode('utf-16')
+    }
+
+
+# Simple function which prints utf8 data
+def func_print_utf16(event, context):
+    message = '奥地利'
+    # Print the string
+    print(message.encode('utf-16'))
 
     return {
         'status': 200,
@@ -139,7 +166,7 @@ def func_print_90_MB(event, context):
 
     return {
         'status': 200,
-        'data': 'OK'
+        'data': 'OK',
     }
 
 
@@ -157,7 +184,7 @@ def func_return_50_MB(event, context):
     # Return the generated string
     return {
         'status': 200,
-        'data': string_append
+        'data': string_append,
     }
 
 
@@ -175,5 +202,5 @@ def func_return_500_MB(event, context):
     # Return the generated string
     return {
         'status': 200,
-        'data': string_append
+        'data': string_append,
     }
