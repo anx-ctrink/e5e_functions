@@ -7,17 +7,64 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"strconv"
+	"strings"
+	"html"
 
 	"github.com/anexia-it/go-e5e"
 )
 
 type entrypoints struct{}
 
-// Simple function which returns "bla"
-func (f *entrypoints) Func_return_bla(event e5e.Event, context e5e.Context) (*e5e.Return, error) {
+func Create_emoji() string {
+	xx := "\\U0001f47f"
+
+    // Hex String
+    h := strings.ReplaceAll(xx, "\\U", "0x")
+
+    // Hex to Int
+    i, _ := strconv.ParseInt(h, 0, 64)
+
+    // Unescape the string (HTML Entity -> String).
+    str := html.UnescapeString(string(i))
+
+	return string(str)
+}
+
+// Simple function which prints an emoji
+func (f *entrypoints) Func_print_emoji(event e5e.Event, context e5e.Context) (*e5e.Return, error) {
+    var str = Create_emoji()
+	// Display the emoji.
+    fmt.Println(str)
 
 	return &e5e.Return{
-		Data: "bla",
+		Data: "Hello World!",
+	}, nil
+}
+
+// Simple function which returns an emoji
+func (f *entrypoints) Func_return_emoji(event e5e.Event, context e5e.Context) (*e5e.Return, error) {
+    var str = Create_emoji()
+
+	return &e5e.Return{
+		Data: str,
+	}, nil
+}
+
+// Simple function which returns "text"
+func (f *entrypoints) Func_return_text(event e5e.Event, context e5e.Context) (*e5e.Return, error) {
+	var message = "text"
+	return &e5e.Return{
+		Data: message,
+	}, nil
+}
+
+// Simple function which prints "text"
+func (f *entrypoints) Func_print_text(event e5e.Event, context e5e.Context) (*e5e.Return, error) {
+	var message = "text"
+	fmt.Printf("%v", message)
+	return &e5e.Return{
+		Data: "Hello World!",
 	}, nil
 }
 

@@ -6,6 +6,23 @@ import string
 #
 
 
+
+# Simple function which prints an emoji
+def func_print_emoji(event, context):
+    print("\U0001f600")
+    
+    return {
+        'status': 200,
+        'data': "OK"
+    }
+    
+# Simple function which returns an emoji
+def func_return_emoji(event, context):
+    return {
+        'status': "\U0001f600",
+        'data': "OK"
+    }
+
 # Simple function which returns "text"
 def func_return_ASCII(event, context):
     message = 'text'
@@ -16,7 +33,7 @@ def func_return_ASCII(event, context):
     }
     
 # Simple function which prints "text"
-def func_return_ASCII(event, context):
+def func_print_ASCII(event, context):
     message = 'text'
     print(message)
     
@@ -48,7 +65,7 @@ def func_print_utf8(event, context):
     }
 
 
-# Simple function which returns non utf8 data
+# Simple function which returns utf16 data
 def func_return_utf16(event, context):
     message = '奥地利'
 
@@ -58,7 +75,7 @@ def func_return_utf16(event, context):
     }
 
 
-# Simple function which prints utf8 data
+# Simple function which prints utf16 data
 def func_print_utf16(event, context):
     message = '奥地利'
     # Print the string

@@ -102,7 +102,7 @@ func (f *entrypoints) Func_sleep_thread(event e5e.Event, context e5e.Context) (*
 func (f *entrypoints) Func_sleep_subprocess_10_10(event e5e.Event, context e5e.Context) (*e5e.Return, error) {
 	for i := 0; i < 10; i++ {
 		now := time.Now() // current local time
-		exec.Command("sleep", "15").Run()
+		exec.Command("sleep", "10").Run()
 		fmt.Println(now)
 	}
 
@@ -110,6 +110,24 @@ func (f *entrypoints) Func_sleep_subprocess_10_10(event e5e.Event, context e5e.C
 		Data: "Hello world!",
 	}, nil
 }
+
+func (f *entrypoints) Func_subprocess_get_frontier(event e5e.Event, context e5e.Context) (*e5e.Return, error) {
+	//output, err := exec.Command("go", "run", "./scripts_go/functions_infinite_get_frontier.go").Output()
+	fmt.Println("Start Func_subprocess_get_frontier and run other file")
+
+	cmd := exec.Command("./scripts_go/functions_infinite_get_frontier")
+	cmd.Run()
+	output, err := cmd.Output()
+
+	if err == nil {
+		fmt.Println(output) // write the output with ResponseWriter
+	}
+	return &e5e.Return{
+		Data: "Hello world!",
+	}, nil
+}
+
+//eigene datei (main methode) - endlosschleife frontierendpunkt (http get) aufrufen - 1 s warten
 
 // Function which performes a Frontier GET request
 func (f *entrypoints) Func_get_frontier(event e5e.Event, context e5e.Context) (*e5e.Return, error) {
@@ -137,20 +155,3 @@ func main() {
 		panic(err)
 	}
 }
-
-/*
-# Function which use multiprocessing and sleeps (10 times - 10 seconds)
-def func_sleep_multiprocessing_10_10(event, context):
-    jobs = []
-    for i in range(10):
-        p = multiprocessing.Process(target=sub_func_sleep_10)
-        jobs.append(p)
-        p.start()
-
-def func_sleep_multiprocessing_100_10(event, context):
-    jobs = []
-    for i in range(100):
-        p = multiprocessing.Process(target=sub_func_sleep_10)
-        jobs.append(p)
-        p.start()
-*/

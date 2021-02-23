@@ -104,7 +104,7 @@ def func_sleep_subprocess_10_10(event, context):
         procs.append(proc)
 
 
-# Function which uses a subprocess, where 10 times a 10 second sleep will be started
+# Function which uses a subprocess, where 100 times a 10 second sleep will be started
 def func_sleep_subprocess_100_10(event, context):
     procs = []
     for _ in range(100):
@@ -120,7 +120,7 @@ def func_sleep_multiprocessing_10_10(event, context):
         jobs.append(p)
         p.start()
 
-
+# Function which use multiprocessing and sleeps (100 times - 10 seconds)
 def func_sleep_multiprocessing_100_10(event, context):
     jobs = []
     for i in range(100):

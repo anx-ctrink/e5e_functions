@@ -78,7 +78,7 @@ function func_print_0_5_MB($event, $context)
 {
     $message = 'A';
     // Append a random upper letter
-    for ($counter = 0; $counter <= 60000; $counter++) {
+    for ($counter = 0; $counter <= 530000; $counter++) {
         $message .= chr(rand(65,90));; 
       }
     
@@ -94,7 +94,7 @@ function func_print_5_MB($event, $context)
 {
     $message = 'A';
     // Append a random upper letter
-    for ($counter = 0; $counter <= 600000; $counter++) {
+    for ($counter = 0; $counter <= 5300000; $counter++) {
         $message .= chr(rand(65,90));; 
       }
     
@@ -110,7 +110,7 @@ function func_print_50_MB($event, $context)
 {
     $message = 'A';
     // Append a random upper letter
-    for ($counter = 0; $counter <= 6000000; $counter++) {
+    for ($counter = 0; $counter <= 53000000; $counter++) {
         $message .= chr(rand(65,90));; 
       }
     
@@ -126,7 +126,7 @@ function func_print_500_MB($event, $context)
 {
     $message = 'A';
     // Append a random upper letter
-    for ($counter = 0; $counter <= 60000000; $counter++) {
+    for ($counter = 0; $counter <= 530000000; $counter++) {
         $message .= chr(rand(65,90));; 
       }
     
@@ -142,7 +142,7 @@ function func_return_50_MB($event, $context)
 {
     $message = 'A';
     // Append a random upper letter
-    for ($counter = 0; $counter <= 6000000; $counter++) {
+    for ($counter = 0; $counter <= 53000000; $counter++) {
         $message .= chr(rand(65,90));; 
       }
     
@@ -157,7 +157,7 @@ function func_return_500_MB($event, $context)
 {
     $message = 'A';
     // Append a random upper letter
-    for ($counter = 0; $counter <= 60000000; $counter++) {
+    for ($counter = 0; $counter <= 530000000; $counter++) {
         $message .= chr(rand(65,90));; 
       }
     
