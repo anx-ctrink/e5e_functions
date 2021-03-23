@@ -19,8 +19,8 @@ def func_print_emoji(event, context):
 # Simple function which returns an emoji
 def func_return_emoji(event, context):
     return {
-        'status': "\U0001f600",
-        'data': "OK"
+        'status': 200,
+        'data': "\U0001f600"
     }
 
 # Simple function which returns "text"

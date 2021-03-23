@@ -2,6 +2,26 @@
 # The following functions test the behavior for unexpected prints or return values
 #
 
+# Simple function which returns an emoji
+def func_return_emoji(event, context)
+    return {
+        :status => 200,
+        :data => "\u{1f4a9}",
+    }
+end
+    
+
+# Simple function which prints an emoji
+def func_print_emoji(event, context)
+    puts "\u{1f4a9}"
+    
+    return {
+        :status => 200,
+        :data => 'OK',
+    }
+end
+
+
 # Simple function which returns "text"
 def func_return_ASCII(event, context)
     message = 'text'

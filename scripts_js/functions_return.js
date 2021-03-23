@@ -4,6 +4,26 @@
 
 const utf8 = require('utf8');
 
+// Simple function which returns an emoji
+exports.returnEmoji = (event, context) => {
+    return {
+        'status': 200,
+        'data': "\u{1f4a9}",
+        
+    };
+};
+    
+// Simple function which prints an emoji
+exports.printEmoji = (event, context) => {
+    console.log("\u{1f4a9}");
+
+    return {
+        'status': 200,
+        'data': 'OK',
+        
+    };
+};
+
 // Simple function which returns 'text' in UTF8
 exports.returnUtf8 = (event, context) => {
     var message = 'text';
