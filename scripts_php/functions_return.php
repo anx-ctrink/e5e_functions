@@ -76,95 +76,69 @@ function func_print_utf16($event, $context)
 // Simple function which prints a string about 0.5 MB
 function func_print_0_5_MB($event, $context)
 {
-    $message = 'A';
-    // Append a random upper letter
-    for ($counter = 0; $counter <= 530000; $counter++) {
-        $message .= chr(rand(65,90));; 
-      }
-    
-    print($message);
-    return [
-        'status' => 200,
-        'data' => 'OK',
-    ];
+    return func_print_MB($event, $context, 530000);
 } 
 
 // Simple function which prints a string about 5 MB
 function func_print_5_MB($event, $context)
 {
-    $message = 'A';
-    // Append a random upper letter
-    for ($counter = 0; $counter <= 5300000; $counter++) {
-        $message .= chr(rand(65,90));; 
-      }
-    
-    print($message);
-    return [
-        'status' => 200,
-        'data' => 'OK',
-    ];
+    return func_print_MB($event, $context, 5300000);
 } 
 
 // Simple function which prints a string about 50 MB
 function func_print_50_MB($event, $context)
 {
-    $message = 'A';
-    // Append a random upper letter
-    for ($counter = 0; $counter <= 53000000; $counter++) {
-        $message .= chr(rand(65,90));; 
-      }
-    
-    print($message);
-    return [
-        'status' => 200,
-        'data' => 'OK',
-    ];
+    return func_print_MB($event, $context, 53000000);
 } 
 
 // Simple function which prints a string about 500 MB
 function func_print_500_MB($event, $context)
 {
+    return func_print_MB($event, $context, 530000000);
+}
+
+// Simple function which prints a string
+function func_print_MB($event, $context, $iterations)
+{
     $message = 'A';
+
     // Append a random upper letter
-    for ($counter = 0; $counter <= 530000000; $counter++) {
-        $message .= chr(rand(65,90));; 
-      }
-    
+    for ($counter = 0; $counter <= $iterations; $counter++) {
+        $message .= chr(rand(65,90));;
+    }
+
     print($message);
+
     return [
         'status' => 200,
         'data' => 'OK',
     ];
-} 
+}
 
 // Simple function which returns a string about 50 MB
 function func_return_50_MB($event, $context)
 {
-    $message = 'A';
-    // Append a random upper letter
-    for ($counter = 0; $counter <= 53000000; $counter++) {
-        $message .= chr(rand(65,90));; 
-      }
-    
-    return [
-        'status' => 200,
-        'data' => $message,
-    ];
-} 
+    return func_return_MB($event, $context, 53000000);
+}
 
 // Simple function which returns a string about 500 MB
 function func_return_500_MB($event, $context)
 {
+    return func_return_MB($event, $context, 530000000);
+}
+
+// Simple function which returns a string
+function func_return_MB($event, $context, $iterations)
+{
     $message = 'A';
+
     // Append a random upper letter
-    for ($counter = 0; $counter <= 530000000; $counter++) {
-        $message .= chr(rand(65,90));; 
-      }
-    
+    for ($counter = 0; $counter <= $iterations; $counter++) {
+        $message .= chr(rand(65,90));
+    }
+
     return [
         'status' => 200,
         'data' => $message,
     ];
-} 
-
-?>
+}
