@@ -2,7 +2,7 @@
 # The following functions test the cpu (quota cpu)
 #
 
-def multply(number)
+def multiply(number)
     result = 2
 
     for i in 1..number

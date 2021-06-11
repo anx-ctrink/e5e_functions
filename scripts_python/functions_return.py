@@ -1,5 +1,6 @@
 import random
 import string
+import sys
 
 #
 # The following functions test the behavior for unexpected prints or return values
@@ -184,6 +185,43 @@ def func_print_90_MB(event, context):
     return {
         'status': 200,
         'data': 'OK',
+    }
+
+
+# Simple function which returns about 0,5 MB
+def func_return_0_5_MB(event, context):
+    lower_upper_alphabet = string.ascii_letters
+    string_append = []
+
+    # Append n times a random letter to a string
+    n = 60000
+    for i in range(n):
+        random_letter = random.choice(lower_upper_alphabet)
+        string_append.append(random_letter)
+
+    print(sys.getsizeof(string_append))
+    # Return the generated string
+    return {
+        'status': 200,
+        'data': string_append,
+    }
+
+
+# Simple function which returns about 5 MB
+def func_return_5_MB(event, context):
+    lower_upper_alphabet = string.ascii_letters
+    string_append = []
+
+    # Append n times a random letter to a string
+    n = 600000
+    for i in range(n):
+        random_letter = random.choice(lower_upper_alphabet)
+        string_append.append(random_letter)
+
+    # Return the generated string
+    return {
+        'status': 200,
+        'data': string_append,
     }
 
 

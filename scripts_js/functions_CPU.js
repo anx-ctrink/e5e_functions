@@ -4,7 +4,7 @@
 
 
 function multiply(number) {
-    result = 2;
+    var result = 2;
     for (i = 0; i < number; i++) {
         result *= Math.floor((Math.random() * 999) + 2);
     }

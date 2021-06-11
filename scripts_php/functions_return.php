@@ -136,6 +136,12 @@ function func_print_MB($event, $context, $iterations)
     ];
 }
 
+// Simple function which returns a string about 5 MB
+function func_return_5_MB($event, $context)
+{
+    return func_return_MB($event, $context, 5300000);
+}
+
 // Simple function which returns a string about 50 MB
 function func_return_50_MB($event, $context)
 {
