@@ -156,7 +156,7 @@ exports.print50MB = (event, context) => {
 
 // Simple function which prints about 500 MB
 exports.print500MB = (event, context) => {
-    const string_append = func_generate_string(525000000);
+    const string_append = generateString(525000000);
 
     return {
         'status': 200,
@@ -189,7 +189,7 @@ exports.return5MB = (event, context) => {
 
 // Simple function which returns about 50 MB
 exports.return50MB = (event, context) => {
-    const string_append = func_generate_string(52500000);
+    const string_append = generateString(52500000);
     
     return {
         'status': 200,
